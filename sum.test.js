@@ -12,3 +12,7 @@ test('adds 5 + 7 to equal 12', () => {
 test('adds -1 + 1 to equal 0', () => {
   expect(sum(-1, 1)).toBe(0);
 });
+
+test('adds 2.5 + 2.5 to equal 5', () => {
+  expect(sum(2.5, 2.5)).toBe(5);
+});
