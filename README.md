@@ -18,11 +18,28 @@ npm install
 npm test
 ```
 
-## Jenkins
+## Continuous Integration (Jenkins)
 
-A Freestyle job named `JS-Test-Job` polls this repository (`H/2 * * * *`) and runs:
+A Freestyle job named **`JS-Test-Job`** runs on Jenkins
+(<http://localhost:8080>, running in Docker from `jenkins/jenkins:lts`).
+
+* **SCM:** Git — `https://github.com/bogart123456/jstestdemo.git`, branch `*/main`
+* **Trigger:** Poll SCM — `H/2 * * * *` (every 2 minutes)
+* **Build environment:** Provide Node & npm bin/ folder to PATH → `NodeJS-20`
+* **Build step (Execute shell):**
 
 ```bash
 npm install
 npm test
 ```
+
+Polling is used instead of a webhook because a locally-run Jenkins is not
+reachable from GitHub.
+
+### Pipeline status
+
+| Step | Expected |
+| --- | --- |
+| Checkout | `git checkout` of `origin/main` |
+| Install | `npm install` (Jest devDependency) |
+| Test | `npm test` → Jest suite passes |
