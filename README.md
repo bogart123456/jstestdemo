@@ -1,6 +1,6 @@
 # jstestdemo
 
-Minimal NodeJS project used for **Laboratory Activity 5: Jenkins CI for NodeJS Project with Automated Test**.
+Minimal NodeJS project used for **Activity 4: Jenkins CI for NodeJS Project with Automated Test**.
 
 ## Contents
 
